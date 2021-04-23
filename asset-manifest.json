@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/netscapes/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/netscapes/static/js/main.8b791f51.chunk.js",
-    "main.js.map": "/netscapes/static/js/main.8b791f51.chunk.js.map",
+    "main.css": "/netscapes/static/css/main.d39d6be6.chunk.css",
+    "main.js": "/netscapes/static/js/main.f7c19885.chunk.js",
+    "main.js.map": "/netscapes/static/js/main.f7c19885.chunk.js.map",
     "runtime-main.js": "/netscapes/static/js/runtime-main.c1ac5241.js",
     "runtime-main.js.map": "/netscapes/static/js/runtime-main.c1ac5241.js.map",
     "static/js/2.703826a2.chunk.js": "/netscapes/static/js/2.703826a2.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.8d4d2ae9.chunk.js": "/netscapes/static/js/3.8d4d2ae9.chunk.js",
     "static/js/3.8d4d2ae9.chunk.js.map": "/netscapes/static/js/3.8d4d2ae9.chunk.js.map",
     "index.html": "/netscapes/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/netscapes/static/css/main.9d5b29c0.chunk.css.map",
+    "static/css/main.d39d6be6.chunk.css.map": "/netscapes/static/css/main.d39d6be6.chunk.css.map",
     "static/js/2.703826a2.chunk.js.LICENSE.txt": "/netscapes/static/js/2.703826a2.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/netscapes/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c1ac5241.js",
     "static/js/2.703826a2.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.8b791f51.chunk.js"
+    "static/css/main.d39d6be6.chunk.css",
+    "static/js/main.f7c19885.chunk.js"
   ]
 }
