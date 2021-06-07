@@ -1,3 +1,19 @@
+# Notes
+photodome babylon.js water reflection
+https://www.babylonjs-playground.com/#14KRGG#200
+
+why p5 canvas shows up at bottom with WEBGL
+https://github.com/processing/p5.js/issues/4080
+
+https://github.com/gitname/react-gh-pages
+
+gotta use hashrouter for gh
+https://medium.com/@arijit_chowdhury/deploy-react-app-with-react-router-to-github-pages-for-free-569377f483f
+
+
+If you want to user BrowserRouter then add this basename={process.env.PUBLIC_URL to Router
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,20 @@
+
+.Mojave {
+    background-image: url("./assets/mojave.jpg");
+    background-size: 300px 200px; //cover;
+    background-position: 0px 200px;
+    background-repeat: repeat-x;
+
+    .Dune {
+         background-image: url("./assets/mojave.jpg");
+         background-size: cover;
+    }
+
+    .dark {
+        background-image: url("./assets/mojavedark.jpeg");
+    }
+
+    .cactus {
+
+    }
+}

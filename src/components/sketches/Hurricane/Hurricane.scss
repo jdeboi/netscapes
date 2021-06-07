@@ -1,0 +1,21 @@
+.Hurricane {
+  // background-image: url(https://media.giphy.com/media/HmTLatwLWpTQk/source.gif);
+  // background-size: cover;
+
+  background-image: url(./gif.gif);
+  background-repeat: repeat;
+  // background-size: 20% 20%;
+
+  img {
+    animation: rotation 2s infinite linear;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

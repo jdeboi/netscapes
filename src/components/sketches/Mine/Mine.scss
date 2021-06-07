@@ -1,0 +1,33 @@
+.Mine {
+    // background: url(./assets/pit.jpeg);
+    background-size: cover;
+    background: rgb(103, 136, 255);
+    // background: transparent;
+    // background: black;
+
+    .Coin {
+        background-image: url("./assets/coin.gif");
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .Cloud {
+        width: 280px;
+        height: 113px;
+        background-image: url("./assets/cloud.png");
+        background-size: cover;
+    }
+
+    .Heli {
+        background-image: url("./assets/heli.png");
+    }
+}
+
+.pickCursor {
+    cursor: url("./assets/pickaxe2.png"), auto;
+
+    button, a {
+        cursor: url("./assets/pickaxe2.png"), auto;
+    }
+}

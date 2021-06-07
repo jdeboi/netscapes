@@ -1,0 +1,15 @@
+.DesktopDiv {
+  position: absolute;
+  pointer-events: all; }
+  .DesktopDiv .DesktopIcon .content {
+    pointer-events: none; }
+
+.DesktopDivMobile {
+  position: absolute;
+  pointer-events: all; }
+
+.desktop-text {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px #000000; }

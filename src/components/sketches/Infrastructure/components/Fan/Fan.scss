@@ -1,0 +1,25 @@
+.Fan {
+    width: 100%;
+    height: 100%;
+
+    .Frame {
+        .window {
+            background: transparent;
+        }
+    }
+
+    div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+    }
+
+    .fanbase {
+        background-image: url(./fan.png);
+    }
+
+    .blades {
+        background-image: url(./blades.png);
+    }
+}
