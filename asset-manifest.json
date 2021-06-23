@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/netscapes/static/css/main.d39d6be6.chunk.css",
-    "main.js": "/netscapes/static/js/main.f7c19885.chunk.js",
-    "main.js.map": "/netscapes/static/js/main.f7c19885.chunk.js.map",
-    "runtime-main.js": "/netscapes/static/js/runtime-main.c1ac5241.js",
-    "runtime-main.js.map": "/netscapes/static/js/runtime-main.c1ac5241.js.map",
-    "static/js/2.703826a2.chunk.js": "/netscapes/static/js/2.703826a2.chunk.js",
-    "static/js/2.703826a2.chunk.js.map": "/netscapes/static/js/2.703826a2.chunk.js.map",
-    "static/js/3.8d4d2ae9.chunk.js": "/netscapes/static/js/3.8d4d2ae9.chunk.js",
-    "static/js/3.8d4d2ae9.chunk.js.map": "/netscapes/static/js/3.8d4d2ae9.chunk.js.map",
+    "main.css": "/netscapes/static/css/main.6e8b6061.chunk.css",
+    "main.js": "/netscapes/static/js/main.3e130676.chunk.js",
+    "main.js.map": "/netscapes/static/js/main.3e130676.chunk.js.map",
+    "runtime-main.js": "/netscapes/static/js/runtime-main.861df476.js",
+    "runtime-main.js.map": "/netscapes/static/js/runtime-main.861df476.js.map",
+    "static/js/2.d3b9b322.chunk.js": "/netscapes/static/js/2.d3b9b322.chunk.js",
+    "static/js/2.d3b9b322.chunk.js.map": "/netscapes/static/js/2.d3b9b322.chunk.js.map",
+    "static/js/3.5328d13a.chunk.js": "/netscapes/static/js/3.5328d13a.chunk.js",
+    "static/js/3.5328d13a.chunk.js.map": "/netscapes/static/js/3.5328d13a.chunk.js.map",
     "index.html": "/netscapes/index.html",
-    "static/css/main.d39d6be6.chunk.css.map": "/netscapes/static/css/main.d39d6be6.chunk.css.map",
-    "static/js/2.703826a2.chunk.js.LICENSE.txt": "/netscapes/static/js/2.703826a2.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/netscapes/static/media/logo.6ce24c58.svg"
+    "static/css/main.6e8b6061.chunk.css.map": "/netscapes/static/css/main.6e8b6061.chunk.css.map",
+    "static/js/2.d3b9b322.chunk.js.LICENSE.txt": "/netscapes/static/js/2.d3b9b322.chunk.js.LICENSE.txt",
+    "static/media/HardDrives.scss": "/netscapes/static/media/bird_trans.3c83e42b.gif",
+    "static/media/Fan.scss": "/netscapes/static/media/fan.a097fdc5.png",
+    "static/media/Hurricane.scss": "/netscapes/static/media/gif.f3c5c213.gif",
+    "static/media/Mojave.scss": "/netscapes/static/media/mojavedark.e9685679.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c1ac5241.js",
-    "static/js/2.703826a2.chunk.js",
-    "static/css/main.d39d6be6.chunk.css",
-    "static/js/main.f7c19885.chunk.js"
+    "static/js/runtime-main.861df476.js",
+    "static/js/2.d3b9b322.chunk.js",
+    "static/css/main.6e8b6061.chunk.css",
+    "static/js/main.3e130676.chunk.js"
   ]
 }
