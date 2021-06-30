@@ -9,7 +9,8 @@ let dogica;
 let _aryInitRot = [];
 let _myObject;
 
-
+// thanks to Kusakari!
+// https://openprocessing.org/sketch/1117787
 export default (props) => {
     //   user = props.user;
     // ui = props.ui;

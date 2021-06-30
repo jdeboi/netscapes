@@ -32,13 +32,13 @@ const onSceneReady = (scene) => {
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 0.7;
 
-    // addPhotoDome(scene);
+    addPhotoDome(scene);
     // Our built-in 'ground' shape.
     // MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
     // addSkybox(scene);
     // addGround(scene);
-    // addWater(scene);
+    addWater(scene);
 };
 
 const addPhotoDome = (scene) => {

@@ -217,19 +217,19 @@ export default function HardDrives() {
     const addSkybox = () => {
         const loader = new THREE.CubeTextureLoader();
         const texture = loader.load([
-            window.AWS + "/hardDrives/skybox/skybox_px.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_nx.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_py.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_ny.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_pz.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_nz.jpg",
+            window.LMD + "/hardDrives/skybox/skybox_px.jpg",
+            window.LMD + "/hardDrives/skybox/skybox_nx.jpg",
+            window.LMD + "/hardDrives/skybox/skybox_py.jpg",
+            window.LMD + "/hardDrives/skybox/skybox_ny.jpg",
+            window.LMD + "/hardDrives/skybox/skybox_pz.jpg",
+            window.LMD + "/hardDrives/skybox/skybox_nz.jpg",
         ]);
         scene.background = texture;
     }
 
     const addFloor = () => {
         // FLOOR
-        var floorTexture = new THREE.TextureLoader().load(window.AWS + "/shared/black_sand.jpg");
+        var floorTexture = new THREE.TextureLoader().load(window.LMD + "/shared/black_sand.jpg");
         floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
         floorTexture.repeat.set(20.0, 20.0);
         floorMaterial = new THREE.MeshBasicMaterial({ map: floorTexture, side: THREE.BackSide });
@@ -243,7 +243,7 @@ export default function HardDrives() {
 
 
     const addPalms = () => {
-        var modelPath = window.AWS + "/hardDrives/palm/";
+        var modelPath = window.LMD + "/hardDrives/palm/";
         var model = "QueenPalmTree";
         var onProgress = function (xhr) {
             if (xhr.lengthComputable) {
@@ -292,7 +292,7 @@ export default function HardDrives() {
 
     const addBottles = () => {
      
-        var modelPath = window.AWS + "/hardDrives/Corona/"
+        var modelPath = window.LMD + "/hardDrives/Corona/"
         var model = "Corona2";
         var onProgress = function (xhr) {
             if (xhr.lengthComputable) {

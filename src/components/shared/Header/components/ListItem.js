@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ListItem extends React.PureComponent {
 
@@ -8,29 +8,23 @@ class ListItem extends React.PureComponent {
   // }
 
   render() {
-    const {title, link, callback, classN} = this.props;
+    const { title, link, callback, classN } = this.props;
     const shortcut = getShortcut(this.props.shortcut);
-    
-    let classn = classN;
-    classn += (shortcut === '' || shortcut === null) ? ' noShortcut': ' shortcut';
 
-    if (title === "thesis") {
+    let classn = classN;
+    classn += (shortcut === '' || shortcut === null) ? ' noShortcut' : ' shortcut';
+    if (link && link !== '') {
       return (
-        <li className={classn}><a href={"https://lmd-bucket.s3.us-east-2.amazonaws.com/thesis.pdf"} target="_blank" rel="noopener noreferrer">thesis</a></li>
-      )
-    }
-    else if (link && link !== '') {
-      return (
-          <li className={classn}><Link to={link}>{this.getMenuItem(title, shortcut)}</Link></li>
+        <li className={classn}><Link to={link}>{this.getMenuItem(title, shortcut)}</Link></li>
       );
     }
 
     return (
-      <li className={classn} onClick={callback} shortcut={shortcut}>{title}</li>
+      <li className={classn} shortcut={shortcut}>{title}</li>
     );
   }
 
-  getMenuItem = (title,shortcut) => {
+  getMenuItem = (title, shortcut) => {
     return (
       <div className="flexRow">
         <div className="title flex1">{title}</div>
@@ -41,7 +35,7 @@ class ListItem extends React.PureComponent {
 }
 
 function getShortcut(shortcut) {
-  if (shortcut === null || shortcut === "") 
+  if (shortcut === null || shortcut === "")
     return null;
 
   const parser = new DOMParser();

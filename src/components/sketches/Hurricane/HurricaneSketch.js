@@ -63,7 +63,7 @@ export default (props) => {
         // p5.clear();
         // let bkDim = getCenterCoverDim(p5, bkImg.width, bkImg.height);
         // p5.image(bkImg, bkDim.x, bkDim.y, bkDim.w, bkDim.h);
-        p5.background(100, 255, 100, 6);
+        p5.background(250, 255, 100, 8);
         p5.image(beachGraphics, 0, 0);
 
 
@@ -85,7 +85,17 @@ export default (props) => {
         hurricane.update(p5);
 
         p5.erase(10, 10);
-        p5.rect(0, 0, p5.windowWidth, p5.windowHeight)
+        p5.rect(0, 0, p5.windowWidth, p5.windowHeight);
+
+        checkDimensions(p5);
+    }
+
+    const checkDimensions = (p5) => {
+        if (p5.windowWidth !== window.innerWidth || p5.windowHeight !== window.innerHeight) {
+            p5.windowWidth = window.innerWidth;
+            p5.windowHeight = window.innerHeight;
+            windowResized(p5);
+        }
     }
 
 
@@ -156,7 +166,7 @@ export default (props) => {
         const { w, h, x, y } = getCoverBackground(beach, 1, p5);
         beachGraphics = p5.createGraphics(p5.windowWidth, p5.windowHeight);
         beachGraphics.clear();
-        beachGraphics.tint(255, 4);
+        beachGraphics.tint(255, 7);
         beachGraphics.image(beach, x, y, w, h);
 
         // const { w, h, x, y } = getCoverBackground(waterGif, 1, p5);

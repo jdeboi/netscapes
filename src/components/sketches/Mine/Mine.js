@@ -5,6 +5,8 @@ import Coins from './components/Coins';
 import Heli from './components/Heli';
 import Frame from '../../shared/Frame/Frame';
 
+import useSound from 'use-sound';
+
 import './Mine.scss';
 import * as THREE from "three";
 
@@ -12,12 +14,13 @@ import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonCont
 import { ImprovedNoise } from 'three/examples/jsm/math/ImprovedNoise.js';
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
-import { mapVal } from '../../shared/Helpers/Helpers';
+import { mapVal, constrain } from '../../shared/Helpers/Helpers';
 
 
-export default function Mine() {
+export default function Mine({ ui, hasLoadedRoom, audioOn }) {
 
-    const vidRef = React.createRef();
+    let vidRef = React.createRef();
+
     let scene, renderer, camera, effect, controls, requestID, mount;
     const worldWidth = 128, worldDepth = 128;
     const worldHalfWidth = worldWidth / 2;
@@ -25,6 +28,13 @@ export default function Mine() {
     let data;
     const clock = new THREE.Clock();
     let mouse = 0;
+
+    const [play, { pause }] = useSound(window.AWS + "/mine/mario.mp3", {
+        volume: .5,
+        interrupt: false,
+        autoplay: false,
+        loop: false,
+    });
 
     useEffect(
         () => {
@@ -37,6 +47,8 @@ export default function Mine() {
 
             return () => {
                 // unmount
+                pause();
+
                 window.removeEventListener('resize', handleWindowResize);
                 window.removeEventListener("mousemove", handleMouseMove);
 
@@ -49,6 +61,19 @@ export default function Mine() {
         // otherwise, fill with variables that will update
         []
     );
+
+    useEffect(() => {
+        // video starts  playing if you've already loaded the page once
+        // dunno why
+        if (hasLoadedRoom) {
+            if (vidRef.current)
+                vidRef.current.play();
+        }
+
+        return (() => {
+
+        })
+    }, [hasLoadedRoom])
 
 
     const handleWindowResize = () => {
@@ -67,6 +92,11 @@ export default function Mine() {
         mouse = mapVal(x, 0, window.innerWidth, .01, -.01);
         if (!mouse)
             mouse = 0;
+    }
+
+    const playSound = () => {
+        if (audioOn && hasLoadedRoom)
+            play();
     }
 
     const setupScene = () => {
@@ -265,44 +295,42 @@ export default function Mine() {
         scene.add(light);
     }
 
-    const addSkybox = () => {
-        const loader = new THREE.CubeTextureLoader();
-        const texture = loader.load([
-            window.AWS + "/hardDrives/skybox/skybox_px.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_nx.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_py.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_ny.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_pz.jpg",
-            window.AWS + "/hardDrives/skybox/skybox_nz.jpg",
-        ]);
-        scene.background = texture;
-    }
+    let factor = mapVal(ui.width, 1110, 375, 1, .33);
+    factor = constrain(factor, .33, 1);
+    const vidW = 530 * factor;
+    const vidH = 300 * factor;
 
-    const vidW = 530;
-    const vidH = 300;
     const coinW = 80;
     const coinSpace = 15;
 
-    const totalW = vidW + vidW*.7;
-    const totalH = vidH + coinW + 26*2 + coinSpace;
+    const totalW = vidW + vidW * .7 + (coinW + coinSpace) * 2;
+    const totalH = vidH + 26  + (coinW + 26 + coinSpace);
 
-    const vid = { x: (window.innerWidth - totalW)/2, y: (window.innerHeight-totalH-40)/2, w: vidW, h: vidH };
+    const vid = { x: (window.innerWidth - totalW) / 2 + coinW + coinSpace, y: (window.innerHeight - totalH) / 2, w: vidW, h: vidH };
     const pit = { x: vid.x + vid.w * .7, y: vid.y + coinW + 26 + coinSpace, w: vidW, h: vidH };
-    const waterfall = { x: pit.x + 330, y: vid.y };
+    const waterfall = { x: pit.x + 330 * factor, y: vid.y, w: constrain(100 * factor, 80, 100), h: constrain(300 * factor, .8 * 300, 300) };
 
-//
+    if (ui.width < 700) {
+        waterfall.y = mapVal(ui.width, 700, 300, vid.y, vid.y - 60);
+        waterfall.x = Math.min(waterfall.x, pit.x+pit.w-waterfall.w)
+    }
+        
+    //
     return (
-        <div className="Mine Sketch pickCursor"> 
+        <div className="Mine Sketch pickCursor" onClick={playSound}>
             {/* <Cloud y={100} /> */}
             {/* <Cloud y={200} /> */}
             <div className="threeCanvas" ref={ref => (mount = ref)} />
             {/* <StackedMine x={200} y={50} /> */}
-            <Coins w={coinW} h={coinW} coinSpace={coinSpace} x={vid.x} y={vid.y} totalW={totalW} totalH={totalH} />
+            <Heli x={50} y={60} classN={"Cloud"} speed={1} />
+            <Heli x={520} y={130} classN={"Cloud"} speed={2.2} />
+
+            <Coins ui={ui} w={coinW} h={coinW} coinSpace={coinSpace} x={vid.x} y={vid.y} pitX={pit.x} vidW={vid.w} totalW={totalW} totalH={totalH} playSound={playSound} />
 
             <Frame
                 title={""}
                 content={
-                    <img src={process.env.PUBLIC_URL + "/local_images/mine/pit.jpeg"} className="fullImg" />
+                    <img src={window.AWS + "/mine/pit.jpeg"} className="fullImg" onClick={playSound} />
                 }
                 width={pit.w}
                 height={pit.h}
@@ -312,10 +340,10 @@ export default function Mine() {
             <Frame
                 title={""}
                 content={
-                    <img src={process.env.PUBLIC_URL + "/local_images/mine/waterfall.gif"} className="fullImg" />
+                    <img src={window.AWS + "/mine/waterfall.gif"} className="fullImg" onClick={playSound} />
                 }
-                width={100}
-                height={300}
+                width={waterfall.w}
+                height={waterfall.h}
                 x={waterfall.x}
                 y={waterfall.y}
             />
@@ -325,11 +353,11 @@ export default function Mine() {
                         ref={vidRef}
                         width={vid.w}
                         height={vid.h}
-                        muted
                         loop
                         playsInline
-                        autoPlay>
-                        <source src={process.env.PUBLIC_URL + "/local_images/mine/quarry2.mp4"} type="video/mp4"></source>
+                        muted={!audioOn}
+                    >
+                        <source src={window.AWS + "/mine/quarry2.mp4"} type="video/mp4"></source>
                     </video>
                 </a>
             }
@@ -338,9 +366,7 @@ export default function Mine() {
                 x={vid.x}
                 y={vid.y}
             />
-            <Heli y={90} classN={"Cloud"} speed={1} />
-            {/* <Heli y={200} classN={"Cloud"} speed={3} /> */}
-            <Heli y={250} classN={"Cloud"} speed={2} />
+           
         </div>
     )
 }

@@ -173,7 +173,7 @@ function JungleGyms() {
   }
 
   const addWallPaper = () => {
-    const url = window.AWS + "/jungleGyms/wallpaper3.jpg";
+    const url = window.LMD + "/jungleGyms/wallpaper3.jpg";
     var wall = new THREE.TextureLoader().load(url);
     wall.wrapS = THREE.RepeatWrapping;
     wall.wrapT = THREE.RepeatWrapping;
@@ -188,7 +188,7 @@ function JungleGyms() {
 
   const addVines = () => {
     // var self = this;
-    var modelPath = window.AWS + "/jungleGyms/vines/";
+    var modelPath = window.LMD + "/jungleGyms/vines/";
     var model = "Vines";
     var onProgress = function (xhr) {
       if (xhr.lengthComputable) {
@@ -269,7 +269,7 @@ function JungleGyms() {
   }
 
 
-  const gymUrl = window.AWS + "/jungleGyms/gym.mp4"
+  const gymUrl = window.LMD + "/jungleGyms/gym.mp4"
   return (
     <div className="JungleGyms Sketch">
       <div className="threeCanvas" ref={ref => (mount = ref)} />
@@ -292,7 +292,7 @@ function JungleGyms() {
         muted
         loop
         className="gym" >
-        <source src={window.AWS + "/jungleGyms/swings.mp4"} type="video/mp4" ></source>
+        <source src={window.LMD + "/jungleGyms/swings.mp4"} type="video/mp4" ></source>
           Your browser does not support HTML5 video.
         </video>
 

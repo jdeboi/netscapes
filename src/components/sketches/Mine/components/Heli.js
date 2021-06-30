@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Heli(props) {
     const dir = 1;
-    const [x, setX] = useState((props.y-80)*300);
+    const [x, setX] = useState((props.y)*300);
     // const [img, setImg] = useState(0);
     // const [dir, setDir] = useState(1);
     
@@ -37,7 +37,7 @@ export default function Heli(props) {
     return (
         <div className={props.classN} style={{
             top: props.y,
-            left: x,
+            left: props.x,
             position: "absolute",
             // backgroundPosition: `0px ${-propeller}px`,
             // backgroundSize: "80%",

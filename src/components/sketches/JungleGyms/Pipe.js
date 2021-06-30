@@ -65,7 +65,7 @@ export default class Pipe {
   };
 
   addTexture() {
-    const texUrl = window.AWS + "/jungleGyms/caution.jpg";
+    const texUrl = window.LMD + "/jungleGyms/caution.jpg";
     var pipeTexture = new THREE.TextureLoader().load(  texUrl );//THREE.ImageUtils.loadTexture(texUrl);
     pipeTexture.wrapS = pipeTexture.wrapT = THREE.RepeatWrapping;
     pipeTexture.repeat.set(.2, .2);

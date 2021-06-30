@@ -25,7 +25,7 @@ export default class Boid {
 
         const r = Math.random();
 
-        const titles = ["taxes2020", "archived", "untitled", "0", "xfiles", "im_not_a_cat"]
+        const titles = ["sys","taxes2020", "archived", "untitled", "0", "xfiles", "im_not_a_cat", "README","diary21", "setup", "nyan", "v1.22", "exposed","Screen Shot 2021-0","99-babes", "root"]
 
         this.title = p5.random(titles);
 

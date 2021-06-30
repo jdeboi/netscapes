@@ -1,0 +1,106 @@
+.About {
+    color: white;
+    width: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    line-height: 140%;
+    background-image: url("https://netscapes.s3.us-east-2.amazonaws.com/about/beach.jpeg");
+    // background-repeat: repeat;
+    // background-size: 25% 25%;
+    background-size: cover;
+    overflow: auto;
+    text-align: justify;
+
+    .backgroundCover {
+        background: rgba(0, 0, 0, .4);
+        pointer-events: none;
+    }
+
+    a {
+        color: cyan;
+    }
+
+    h1 {
+        font-size: 34px;
+        padding: 20px 0 20px 0;
+        line-height: 60px;
+    }
+
+    h2 {
+        font-size: 24px;
+        padding: 10px 0 10px 0;
+        line-height: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+        // padding: 10px 0 10px 0;
+        line-height: 24px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 20px;
+        padding: 15px 0 15px 0;
+    }
+
+    ul {
+        margin-left: 0;
+        padding-left: 40px;
+
+        li {
+            padding: 5px 0 5px 0;
+        }
+    }
+
+    .container {
+        flex: 1;
+        padding-top: 50px;
+        padding-bottom: 70px;
+
+        width: 87%;
+        max-width: 1200px;
+        margin: auto;
+        box-sizing: border-box;
+        z-index: 1;
+    }
+}
+
+.About.xxsmall {
+    .container {
+        padding: 15px;
+        padding-bottom: 70px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 24px;
+        padding: 20px 0 20px 0;
+        line-height: 40px;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 10px 0 10px 0;
+        line-height: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+        // padding: 10px 0 10px 0;
+        line-height: 24px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 20px;
+        padding: 15px 0 15px 0;
+    }
+}
+
+.About.landscape {
+    .container {
+        padding-right: 40px;
+    }
+}

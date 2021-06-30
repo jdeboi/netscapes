@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import FinderSubmenu from './components/FinderSubmenu';
 // import { withRouter, Link } from "react-router-dom";
@@ -20,10 +21,6 @@ export default function Header(props) {
 
   // const [isVolumeMuted, setVolumeMuted] = useState(false);
 
-
-  const isXXSmall = () => {
-    return (props.ui.width < 445);
-  }
 
 
   const getMainMenuSub = () => {
@@ -51,6 +48,7 @@ export default function Header(props) {
           {getMainMenuSub()}
         </ul>
         <ul className="right">
+          {getAboutLi()}
           {getInstaLi()}
           <li></li>
           <li><Clock /></li>
@@ -95,11 +93,20 @@ export default function Header(props) {
 
   const getInstaLi = () => {
     return (
-      <li onClick={() => openInNewTab("https://www.instagram.com/jdeboi/")}>
+      <li className="clickable" onClick={() => openInNewTab("https://www.instagram.com/jdeboi/")}>
         <i className="fab fa-instagram"></i>
       </li>
     )
   }
+
+  const getAboutLi = () => {
+    return (
+      <li className="clickable">
+        <Link to="/about"><i className="far fa-file-alt"></i></Link>
+      </li>
+    )
+  }
+
   const openInNewTab = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow)
@@ -125,7 +132,7 @@ export default function Header(props) {
   const getVolumeLi = () => {
     const classVol = "expandable icon opened";
     return (
-      <li className={classVol} onClick={props.toggleVolume}>
+      <li className={classVol} onClick={props.toggleAudio}>
         {/* <Volume isMuted={props.music.isMuted} /> */}
         {getVolumeIcon()}
       </li>
@@ -133,12 +140,10 @@ export default function Header(props) {
   }
 
   const getVolumeIcon = () => {
-    // const { music } = props;
-    // if (music.isMuted || music.volume == 0)
-    //   return <VolumeOff />
-    // else if (music.volume < .5)
-    //   return <VolumeDown />
-    return <VolumeUp />
+    const { audioOn } = props;
+    if (audioOn)
+      return <VolumeUp />
+    return <VolumeOff />
   }
 
   if (isSimpleHeader()) {

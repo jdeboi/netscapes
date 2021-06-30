@@ -6,7 +6,7 @@
     // background: black;
 
     .Coin {
-        background-image: url("./assets/coin.gif");
+        background-image: url(https://netscapes.s3.us-east-2.amazonaws.com/mine/coin.gif);
         background-size: cover;
         width: 100%;
         height: 100%;
@@ -15,19 +15,19 @@
     .Cloud {
         width: 280px;
         height: 113px;
-        background-image: url("./assets/cloud.png");
+        background-image: url(https://netscapes.s3.us-east-2.amazonaws.com/mine/cloud.png);
         background-size: cover;
     }
 
     .Heli {
-        background-image: url("./assets/heli.png");
+        // background-image: url(https://netscapes.s3.us-east-2.amazonaws.com/mine/heli.png);
     }
 }
 
 .pickCursor {
-    cursor: url("./assets/pickaxe2.png"), auto;
+    cursor: url(https://netscapes.s3.us-east-2.amazonaws.com/mine/pickaxe3.png), auto;
 
     button, a {
-        cursor: url("./assets/pickaxe2.png"), auto;
+        cursor: url(https://netscapes.s3.us-east-2.amazonaws.com/mine/pickaxe3.png), auto;
     }
 }

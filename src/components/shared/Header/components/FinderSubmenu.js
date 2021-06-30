@@ -47,12 +47,12 @@ class FinderSubmenu extends React.PureComponent {
     // var title = this.props.title; 
 
     // if (this.props.title === "") {
-      const title =
-        <React.Fragment>
-          <i className={this.props.icon}></i>
-          <span> </span>
-          {this.props.title}
-        </React.Fragment>
+    const title =
+      <React.Fragment>
+        <i className={this.props.icon}></i>
+        <span> </span>
+        {this.props.title}
+      </React.Fragment>
     // }
     const specialClass = this.props.specialClass;
     let ulSpecialClass = this.props.ulSpecialClass ? this.props.ulSpecialClass : "";
@@ -75,11 +75,35 @@ class FinderSubmenu extends React.PureComponent {
           <ul className={ulSpecialClass}>
             {listItems.map((item, i) => {
               let classLN = item.classN ? item.classN : "";
+              let t = item.title;
+
+              if (classLN === "disabled") {
+                t = "coming soon";
+                return (
+                  <ListItem
+                    key={i}
+                    shortcut={item.shortcut}
+                    title={t}
+                    link={null}
+                    callback={item.callback}
+                    classN={classLN}
+                  />)
+              }
+              if (item.title === "hard drives on seashores")
+                t = "hard drives";
               return (
-                <ListItem key={i} shortcut={item.shortcut} title={item.title} link={`/${item.link}`} callback={item.callback} classN={classLN} />)
-            }
-            )
-            }  </ul>
+                <ListItem
+                  key={i}
+                  shortcut={item.shortcut}
+                  title={t}
+                  link={`/${item.link}`}
+                  callback={item.callback}
+                  classN={classLN}
+                />)
+
+
+            })}
+          </ul>
         </div>
       </li>
     );

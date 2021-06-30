@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import './RoomDecal.css';
 
 import { getSketchFromTitle } from '../../sketches/Sketches';
@@ -9,9 +9,9 @@ import CenterModal from '../CenterModal/CenterModal';
 
 export default function RoomDecal(props) {
 
-    const currentPage = useLocation();
-    const { ui, room, resetLoaded, startMedia, hasLoadedRoom } = props;
+    const { ui, room, startMedia, hasLoadedRoom } = props;
     const sketch = getSketchFromTitle(room);
+    
 
     const buttonClicked = () => {
         startMedia();
@@ -30,12 +30,7 @@ export default function RoomDecal(props) {
         startMedia();
     }
 
-    useEffect(() => {
-        resetLoaded();
 
-        return () => { };
-    },
-        [currentPage]);
 
     if (sketch) {
         const buttons = getButtons();
@@ -63,7 +58,8 @@ export default function RoomDecal(props) {
                             <p style={{ fontSize: 20, paddingBottom: 0, fontWeight: 900 }}>
                                 <span className="">{title}</span>
                             </p>
-                            <p style={{ fontSize: 12 }}>{year}</p>
+                            {/* <p style={{ fontSize: 12 }}>{year}</p> */}
+                            <p style={{ fontSize: 12 }}>Jenna deBoisblanc</p>
                             <p style={{ fontSize: 12 }}>Custom Software</p>
                             <p style={{ fontSize: 12 }}>Variable Dimensions</p>
 
