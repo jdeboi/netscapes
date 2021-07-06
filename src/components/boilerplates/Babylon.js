@@ -42,7 +42,7 @@ const addSkybox = (scene) => {
     skybox = MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
     var skyboxMaterial = new StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.reflectionTexture = new CubeTexture(process.env.PUBLIC_URL + "/local_images/skybox/mountain/mossymountains", scene);
+    skyboxMaterial.reflectionTexture = new CubeTexture("https://lmd-bucket.s3.us-east-2.amazonaws.com/sketches/hardDrives/skybox/skybox", scene);
     // skyboxMaterial.reflectionTexture = new CubeTexture(process.env.PUBLIC_URL + "/local_images/skybox/sunset/sunset", scene);
 
     skyboxMaterial.reflectionTexture.coordinatesMode = Texture.SKYBOX_MODE;

@@ -26,22 +26,10 @@ export default class Part {
 
 
         if (r < .5)
-            this.img = p5.loadImage(process.env.PUBLIC_URL + "/local_images/buildings/server2.jpeg");
+            this.img = p5.loadImage(window.AWS + "/infrastructure/server2.jpeg");
         else
-            this.img = p5.loadImage(process.env.PUBLIC_URL + "/local_images/buildings/server.jpeg");
+            this.img = p5.loadImage(window.AWS + "/infrastructure/server.jpeg");
 
-        // else if (r < .6)
-        //     this.img = p5.loadImage(process.env.PUBLIC_URL + "/local_images/buildings/0.jpeg");
-        // else if (r < .7)
-        //     this.img = p5.loadImage(process.env.PUBLIC_URL + "/local_images/buildings/1.jpeg");
-        // else if (r < .8)
-        //     this.img = p5.loadImage(process.env.PUBLIC_URL + "/local_images/buildings/2.jpeg");
-        // else
-        //     this.img = p5.loadImage(process.env.PUBLIC_URL + "/local_images/buildings/server.jpeg");
-
-
-
-        //   p5.textureWrap(p5.REPEAT);
     }
 
     update(p5) {
@@ -89,24 +77,42 @@ export default class Part {
         //     p5.sphere(w);
         else {
 
-            // this.drawText(distXYZ + w, p5)
-        }
-        p5.box(distXYZ + w, w, w); //length + w
 
+        }
+
+        p5.box(distXYZ + w, w, w); //length + w
+        this.drawText(distXYZ + w, p5)
         p5.pop();
     }
 
     drawText(w, p5) {
-        let txt = "--------------------------------------------";
-        // let txt = "=================================================";
-        let txtSz = 42;
-        let index = p5.floor(w / txtSz);
-        index = p5.constrain(index, 1, txt.length);
-        txt = txt.substring(0, index);
+        // let txt = "";
+        let txtSz = 32;
+        let maxLen = 60;
+        let txt = "$$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ bit by bit $$$$$$ ";
+        // txt = txt.substring(0, 80);
+
+        // let index = p5.floor(w / txtSz);
+        // index = p5.constrain(index, 1, txt.length);
+        // txt = txt.substring(0, index);
+
+
+        
+        // let per = p5.sin(p5.millis() / 1000);
+        // let txtLen = p5.map(per, -1, 1, 10, txt.length);
+        // txt = txt.substring(0, txtLen);
+
+        let per = p5.sin(p5.millis() / 1000);
+        let start = p5.map(per, -1, 1, 0, maxLen);
+        txt = txt.substring(start, start+maxLen);
+        
+
         p5.textSize(txtSz);
         p5.stroke(this.col);
         p5.fill(this.col);
         p5.text(txt, -p5.textWidth(txt) / 2, 0);
+
+
 
         p5.noStroke();
     }

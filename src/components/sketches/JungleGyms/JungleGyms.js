@@ -81,8 +81,9 @@ function JungleGyms() {
     effect.setSize(window.innerWidth, window.innerHeight);
 
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 1;
-    controls.maxDistance = 80;
+    controls.enableZoom = false;
+    // controls.minDistance = 1;
+    // controls.maxDistance = 80;
 
     var ambientLight = new THREE.AmbientLight(0xaaaaaa);
     scene.add(ambientLight);

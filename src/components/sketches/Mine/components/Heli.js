@@ -37,7 +37,7 @@ export default function Heli(props) {
     return (
         <div className={props.classN} style={{
             top: props.y,
-            left: props.x,
+            left: x,
             position: "absolute",
             // backgroundPosition: `0px ${-propeller}px`,
             // backgroundSize: "80%",

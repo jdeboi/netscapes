@@ -322,8 +322,8 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
             {/* <Cloud y={200} /> */}
             <div className="threeCanvas" ref={ref => (mount = ref)} />
             {/* <StackedMine x={200} y={50} /> */}
-            <Heli x={50} y={60} classN={"Cloud"} speed={1} />
-            <Heli x={520} y={130} classN={"Cloud"} speed={2.2} />
+            <Heli x={50} y={30} classN={"Cloud"} speed={1} />
+            <Heli x={520} y={100} classN={"Cloud"} speed={2.2} />
 
             <Coins ui={ui} w={coinW} h={coinW} coinSpace={coinSpace} x={vid.x} y={vid.y} pitX={pit.x} vidW={vid.w} totalW={totalW} totalH={totalH} playSound={playSound} />
 

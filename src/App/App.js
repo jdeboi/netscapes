@@ -28,7 +28,8 @@ import RoomDecal from '../components/shared/RoomDecal/RoomDecal';
 
 // hooks
 import useDimensions from '../hooks/useDimensions';
-import useSound from 'use-sound';
+// import useSound from 'use-sound';
+import useMultiPlayer from '../hooks/useMultiPlayer';
 
 window.AWS = "https://netscapes.s3.us-east-2.amazonaws.com";
 window.LMD = "https://lmd-bucket.s3.us-east-2.amazonaws.com/sketches";
@@ -36,64 +37,45 @@ window.LMD = "https://lmd-bucket.s3.us-east-2.amazonaws.com/sketches";
 
 function App(props) {
 
-  // const currentPage = useLocation();
-  // const currentPage = "yosemite";
   const currentPage = getRoomTitle(useLocation().pathname);
   const ui = useDimensions();
   const [hasLoadedRoom, setLoadedRoom] = useState(false);
   const [audioOn, setAudioOn] = useState(true);
 
-  const [audioSource, setAudioSource] = useState(window.LMD + "/yosemite/fire.mp3");
-  const [volume, setVolume] = useState(0);
-  const [play, { pause }] = useSound(audioSource, {
-    volume: volume,
-    interrupt: false,
-    autoplay: false,
-    loop: true,
-  });
+  const [setVolume] = useMultiPlayer(audioOn, hasLoadedRoom);
+
 
   useEffect(
     () => {
       return () => {
-        pause();
+        // pause();
       }
     },
     [ui]
   );
 
 
-  // if room loads, play
-  useEffect(
-    () => {
-      if (hasLoadedRoom && audioOn) {
-        play();
-      }
-      else {
-        pause();
-      }  
-    },
-    [hasLoadedRoom]
-  );
-
    // if we change audio or the room loads, play
-   useEffect(
-    () => {
-      if (hasLoadedRoom && audioOn) {
-        play();
-      }
-      else {
-        pause();
-      }  
-      // console.log("main audio", audioOn?"on":"off");
-    },
-    [audioOn]
-  );
+  //  useEffect(
+  //   () => {
+  //     if (hasLoadedRoom && audioOn) {
+  //       play();
+  //       // console.log("play", audioSource, volume, hasLoadedRoom, audioOn)
+  //     }
+  //     else {
+  //       pause();
+  //       // console.log("stop", audioSource, volume, hasLoadedRoom, audioOn)
+  //     }  
+  //   },
+  //   [audioOn, hasLoadedRoom, audioSource]
+  // );
 
 
   // if there's a new page, reset the audio
   useEffect(() => {
+    // setAudioSource("");
     setLoadedRoom(false);
-    pause();
+    // pause();
   },
     [currentPage]
   );
@@ -104,9 +86,10 @@ function App(props) {
     hasLoadedRoom,
     audioOn,
     setVolume,
-    setAudioSource,
+    // setAudioSource,
     currentPage
   }
+
 
   return (
     <div className="App">
@@ -121,10 +104,10 @@ function App(props) {
       {/* sketches */}
       <Route exact path="/" render={() => (<Mine {...sketchProps}/>)} />
       <Route exact path={getUrl("yosemite")} render={() => (<Yosemite {...sketchProps} />)} />
-      <Route exact path={getUrl("hard")} component={HardDrives} />
-      <Route exact path={getUrl("jungle")} render={() => (<JungleGyms />)} />
+      <Route exact path={getUrl("hard")} render={() => (<HardDrives {...sketchProps} />)} />
+      <Route exact path={getUrl("jungle")} render={() => (<JungleGyms {...sketchProps} />)} />
       <Route exact path={getUrl("cat")} render={() => (<Hurricane {...sketchProps} />)} />
-      <Route exact path={getUrl("mojave")} component={Mojave} />
+      <Route exact path={getUrl("mojave")} render={() => (<Mojave {...sketchProps} />)} />
       <Route exact path={getUrl("mine")} render={() => (<Mine {...sketchProps} />)} />
       <Route exact path={getUrl("out")} render={() => (<Infrastructure {...sketchProps} />)} />
       {/* <Route exact path={getUrl("beached")} component={Beached} /> */}

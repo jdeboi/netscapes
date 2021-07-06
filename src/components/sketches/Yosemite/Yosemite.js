@@ -53,11 +53,8 @@ export default function Yosemite(props) {
 
 
   useEffect(() => {
-    props.setAudioSource(window.LMD + "/yosemite/fire.mp3");
+    props.setVolume(0);
 
-    return( ()  => {
-      props.setVolume(0);
-    })
   },
     [])
 

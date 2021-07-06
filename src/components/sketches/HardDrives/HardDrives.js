@@ -29,7 +29,7 @@ var AnaglyphEffect = require('../../shared/3D/AnaglyphEffect')(THREE, true);
 
 
 
-export default function HardDrives() {
+export default function HardDrives(props) {
 
     let scene, controls, mount, camera, renderer, effect, requestID;
     let water, floorMaterial;
@@ -39,12 +39,7 @@ export default function HardDrives() {
     let seed = 13;
     const island = "https://www.google.com/maps/embed?pb=!4v1591730465198!6m8!1m7!1sCAoSLEFGMVFpcFBTYW9SYVFBMmR0QjhoeTVaSUs5R3lQaGJBNVB5dVhFQ2o0UVdW!2m2!1d-17.3611139!2d177.1339841!3f99.14217177224654!4f16.212409154729073!5f0.5970117501821992";
 
-    // const { ui } = this.props;
-    const ui = {
-        contentW: window.innerWidth,
-        contentH: window.innerHeight,
-        orientation: "landscape"
-    }
+    const { ui } = props;
     const svFrame = {};
     let f = .8;
     if (ui.contentW >= 1920)
@@ -89,11 +84,15 @@ export default function HardDrives() {
 
     useEffect(
         () => {
+            // props.setAudioSource(window.LMD + "/hardDrives/seagulls.mp3");
+            // props.setVolume(.5);
+
             window.addEventListener('resize', handleWindowResize);
             setupScene();
             startAnimationLoop();
 
             return () => {
+                // props.setVolume(0);
                 window.removeEventListener('resize', handleWindowResize);
                 window.cancelAnimationFrame(requestID);
                 if (controls)
@@ -291,7 +290,7 @@ export default function HardDrives() {
     }
 
     const addBottles = () => {
-     
+
         var modelPath = window.LMD + "/hardDrives/Corona/"
         var model = "Corona2";
         var onProgress = function (xhr) {
@@ -302,7 +301,7 @@ export default function HardDrives() {
         }
         var onError = function (error) {
             // console.log("issue with bottle", error)
-         };
+        };
         var manager = new THREE.LoadingManager();
         manager.addHandler(/\.dds$/i, new DDSLoader());
         new MTLLoader(manager)

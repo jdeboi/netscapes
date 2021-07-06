@@ -4,7 +4,7 @@ import useSound from "use-sound";
 export default function useAudio(url, initVol, isAutoPlayOn, isPageLoaded, isMainAudioOn) {
 
   const [volume, setVolume] = useState(initVol);
-
+  
 
   const [play, {stop}] = useSound(url, {
     volume: volume,
@@ -12,17 +12,17 @@ export default function useAudio(url, initVol, isAutoPlayOn, isPageLoaded, isMai
     autoplay: false,
     loop: isAutoPlayOn,
     onend: function () {
-      console.log('Finished!');
+      // console.log('Finished!');
     }
   });
 
   const playSound = () => {
     if (isPageLoaded && isMainAudioOn) {
       play();
-      console.log("play?")
+      // console.log("play?")
     }
     else {
-      console.log("no", isPageLoaded,isMainAudioOn);
+      // console.log("no", isPageLoaded,isMainAudioOn);
       stop();
     }
      
@@ -61,6 +61,6 @@ export default function useAudio(url, initVol, isAutoPlayOn, isPageLoaded, isMai
     }
   }, []);
 
-  return [playSound, setVolume];
+  return [setSource, playSound, setVolume];
 };
 
