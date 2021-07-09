@@ -19,13 +19,14 @@ export default (props) => {
 
     const preload = (p5) => {
         const url = "https://lmd-bucket.s3.us-east-2.amazonaws.com/sketches";
+        const netURL = "https://netscapes.s3.us-east-2.amazonaws.com/hurricane";
         dogica = p5.loadFont(url + '/shared/fonts/dogica.ttf');
 
         boidImgs[0] = p5.loadImage("https://lmd-bucket.s3.us-east-2.amazonaws.com/sketches/waveforms/txt.png")
         boidImgs[1] = p5.loadImage("https://lmd-bucket.s3.us-east-2.amazonaws.com/sketches/loop/folder.png");
-        beach = p5.loadImage("/netscapes/local_images/hurricane/beach.jpeg");
+        beach = p5.loadImage(netURL + "/beach.jpeg");
 
-        waterGif = p5.loadGif("/netscapes/local_images/hurricane/water5.gif"); //not sure why this one has a cors issue
+        waterGif = p5.loadGif(netURL + "/water5.gif"); //not sure why this one has a cors issue
 
     }
 
