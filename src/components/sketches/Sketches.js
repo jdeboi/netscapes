@@ -1,7 +1,7 @@
 
 
 const getClassN = (id) => {
-    const publishNum = 3;
+    const publishNum = 4;
     if (id <= publishNum)
         return "";
     return "disabled"
@@ -11,8 +11,9 @@ export const sketches = [
     { id: 5, short: "out", link: "overclocked", title: "over⏰'d", shortcut: "&#x2318;2", year: 2021, classN: getClassN(2) },
     { id: 3, short: "cat", link: "cat-5", title: "cat 5", shortcut: "&#x2318;3", year: 2021, classN: getClassN(3) },
 
-    { id: 2, short: "yosemite", link: "yosemite", title: "yosemite", shortcut: "&#x2318;4", year: 2021, classN: getClassN(4) },
-    { id: 7, short: "mojave", link: "mojave", title: "mojave", shortcut: "&#x2318;5", year: 2021, classN: getClassN(5) },
+    { id: 7, short: "mojave", link: "mojave", title: "mojave", shortcut: "&#x2318;4", year: 2021, classN: getClassN(4) },
+    { id: 2, short: "yosemite", link: "yosemite", title: "yosemite", shortcut: "&#x2318;5", year: 2021, classN: getClassN(5) },
+   
     { id: 6, short: "jungle", link: "jungle-gyms", title: "jungle gyms", shortcut: "&#x2318;6", year: 2021, classN: getClassN(6) },
     
    

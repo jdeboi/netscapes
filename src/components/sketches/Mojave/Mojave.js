@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Sketch from './Sketch';
 import Frame from '../../shared/Frame/Frame';
 import Drapes from './components/Drapes/Drapes';
+import Candles from './components/Candle/Candles';
 
 import './Mojave.scss';
 
@@ -27,10 +28,12 @@ export default function Mojave({ hasLoadedRoom, ui }) {
     const vw = Math.min(480, ui.contentW - 20);
     const vid = {
         w: vw,
-        h: 296 * (vw/480)
+        h: 296 * (vw / 480)
     }
     vid.x = (ui.contentW - vid.w) / 2;
     vid.y = (ui.contentH - vid.h - 26) / 2;
+
+  
 
     return (
         <div className="Mojave Sketch">
@@ -48,7 +51,7 @@ export default function Mojave({ hasLoadedRoom, ui }) {
                         playsInline
                         muted
                     >
-                        <source src={netURL+ "/elon.mp4"} type="video/mp4"></source>
+                        <source src={netURL + "/elon.mp4"} type="video/mp4"></source>
                     </video>
                 </a>
             }
@@ -57,6 +60,9 @@ export default function Mojave({ hasLoadedRoom, ui }) {
                 x={vid.x}
                 y={vid.y}
             />
+
+            <Candles ui={ui} x={vid.x} y={vid.y} w={vid.w} h={vid.h} />
+
         </div>
     )
 }

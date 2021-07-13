@@ -11,7 +11,7 @@ export default () => {
                 <hr />
                 <h3>statement</h3>
                 <hr />
-                <p>During the pandemic, the internet afforded unfettered exploration of virtual terrains and information-scapes—a much needed respite from prolonged physical and social confinement. In this time of quarantine, the meaning of “exterior” in digital spaces found new relevance as online worlds increasingly served as substitutes for analog spaces.</p>
+                <p>During the pandemic, the internet afforded unfettered exploration of virtual terrains and information-scapes, a much needed respite from prolonged physical and social confinement. In this time of quarantine, the meaning of “exterior” in digital spaces found new relevance as online worlds increasingly served as substitutes for analog spaces.</p>
 
                 <p>Netscapes is a body of work that examines these cyber-environments, and in particular, the extent to which digital representations of natural landscapes reflect existing values and attitudes towards nature. Desktop wallpapers serve as a salient and sardonic example of the Anthropocene’s ethics. While climate change threatens to collapse global ecosystems and unravel the fabric of civilization, we paper desktops with uncannily-idyllic Caribbean beaches and rolling mountain ranges. We build captivating virtual worlds, and mine cryptocurrencies, on digital platforms that are abstracted away from the petrochemical infrastructure upon which they run.</p>
 

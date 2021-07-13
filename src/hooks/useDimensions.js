@@ -12,6 +12,7 @@ export default function useDimensions() {
     const getHasFooter = (w, h) => {
         //788
         return (w < 835 || h < 600);
+        // return false;
     }
 
     const getOrientation = (w, h) => {
@@ -40,19 +41,20 @@ export default function useDimensions() {
 
     const getContentW = (w, h) => {
         if (getHasFooter(w, h) || getIsMobile(w, h)) {
-            if (getOrientation(w, h) === "portrait") {
-                return w;
-            }
-            return w - footerMobileH; // right hand menu
+            // if (getOrientation(w, h) === "portrait") {
+            //     return w;
+            // }
+            // return w - footerMobileH; // right hand menu
+            return w;
         }
         return w;
     }
 
     const getContentH = (w, h) => {
         if (getHasFooter(w, h) || getIsMobile(w, h)) {
-            if (getOrientation(w, h) === "portrait") {
-                return h - footerMobileH - headerMobileH;
-            }
+            // if (getOrientation(w, h) === "portrait") {
+            //     return h - footerMobileH - headerMobileH;
+            // }
             return h - headerMobileH;
         }
         return h - headerH;

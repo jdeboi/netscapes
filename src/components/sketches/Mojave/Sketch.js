@@ -17,6 +17,8 @@ let pg;
 
 let ui;
 
+let dune, lighter;
+
 export default (props) => {
     ui = props.ui;
 
@@ -25,14 +27,14 @@ export default (props) => {
         const netURL = "https://netscapes.s3.us-east-2.amazonaws.com/mojave";
         dogica = p5.loadFont(url + '/shared/fonts/dogica.ttf');
 
-        desert = p5.loadImage(process.env.PUBLIC_URL + "/local_images/mojave/mars.jpeg");
-        desert2 = p5.loadImage(process.env.PUBLIC_URL + "/local_images/mojave/sand.jpeg");
+        desert = p5.loadImage(netURL + "/mars.jpeg");
+        desert2 = p5.loadImage(netURL + "/sand.jpeg");
 
         fire = p5.loadImage(netURL + "/fire.png");
         joshua = p5.loadImage(netURL + "/joshua.png");
         moon = p5.loadImage(netURL + "/moon5.jpeg");
 
-
+        dune = p5.loadImage(netURL + "/dune.png");
     }
 
     ////////////////////////////////////////////////////////////////////////
@@ -57,6 +59,9 @@ export default (props) => {
         p5.noiseSeed(1);
 
         pg = p5.createGraphics(p5.windowWidth, p5.windowHeight);
+        
+        p5.noCursor();
+
         initializePG(p5);
     };
 
@@ -70,6 +75,7 @@ export default (props) => {
 
 
         drawMarsStrip(p5);
+        drawDunes(p5);
 
         p5.imageMode(p5.CENTER);
 
@@ -106,15 +112,24 @@ export default (props) => {
 
         // p5.noErase();
 
+   
+        // p5.image(lighter, p5.mouseX, p5.mouseY);
 
         checkDimensions(p5);
+    }
+
+    const drawDunes = (p5) => {
+        let w = dune.width;
+        for (let x = 0; x < p5.width; x += w) {
+            p5.image(dune, x, p5.height - dune.height);
+        }
     }
 
     const drawMarsStrip = (p5) => {
         let factor = .3;
         let index = 0;
         let w = desert2.width * factor;
-        let y = (p5.height- 26 - 30)/2 ;
+        let y = (p5.height - 26 - 30) / 2;
         for (let x = 0; x < p5.width; x += w) {
             if (index % 2 === 0) {
                 p5.push();
@@ -183,8 +198,8 @@ export default (props) => {
             }
         }
 
-        for (let y = 0; y <= pg.height; y += desert2.height * 1.03) {
-            for (let x = 0; x < pg.width; x += desert2.width * 1.02) {
+        for (let y = 0; y <= pg.height; y += desert2.height * 1.05) {
+            for (let x = 0; x < pg.width; x += desert2.width * 1.04) {
                 pgtemp.image(desert2, x, y, desert2.width, desert2.height);
             }
         }

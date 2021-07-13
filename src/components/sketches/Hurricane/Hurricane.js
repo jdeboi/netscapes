@@ -2,7 +2,6 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import Sketch from './HurricaneSketch';
 import './Hurricane.scss';
-// import useAudio from '../../../hooks/useAudio';
 
 export default function Hurricane(props) {
 

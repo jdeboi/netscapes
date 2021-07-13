@@ -10,7 +10,6 @@ export default function useAudio(audioOn, hasLoadedRoom) {
     const [volume, setVolume] = useState(0);
 
     const onLoad = () => {
-        console.log("test")
         playCurrentPage();
     }
 
@@ -29,7 +28,7 @@ export default function useAudio(audioOn, hasLoadedRoom) {
         {
             title: "mojave", 
             player: useSound(window.LMD + "/yosemite/fire.mp3", {
-                volume: .5,
+                volume: .2,
                 interrupt: false,
                 autoplay: false,
                 preload:true,
