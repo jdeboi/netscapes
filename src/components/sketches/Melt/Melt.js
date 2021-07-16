@@ -90,6 +90,12 @@ const onRender = (scene) => {
     }
 };
 
+const addModel = (scene) => {
+//    SceneLoader.Load(process.env.PUBLIC_URL + "/local_images/melt/dolphin/", "NOVELO_DOLPHIN.obj", engine, function (scene) { 
+//         // do something with the scene
+//      });
+}
+
 export default () => (
     <div className="Beached Sketch">
         <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="babylon-canvas" />
