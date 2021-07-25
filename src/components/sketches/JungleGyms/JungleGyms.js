@@ -22,7 +22,7 @@ var AnaglyphEffect = require('../../shared/3D/AnaglyphEffect')(THREE, true);
 
 
 
-function JungleGyms() {
+function JungleGyms({audioOn, hasLoadedRoom}) {
 
 
   const [firstLoad, setLoad] = useState(true);
@@ -81,9 +81,9 @@ function JungleGyms() {
     effect.setSize(window.innerWidth, window.innerHeight);
 
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableZoom = false;
-    // controls.minDistance = 1;
-    // controls.maxDistance = 80;
+    // controls.enableZoom = false;
+    controls.minDistance = 1;
+    controls.maxDistance = 80;
 
     var ambientLight = new THREE.AmbientLight(0xaaaaaa);
     scene.add(ambientLight);
@@ -116,7 +116,8 @@ function JungleGyms() {
       if (vines[i]) vines[i].position.y = -10 - i * 5 + Math.sin(new Date().getTime() / 1000);
     }
 
-    if (controls) controls.update();
+    // if (controls) controls.update();
+    controls.update();
     effect.render(scene, camera);
     requestID = window.requestAnimationFrame(startAnimationLoop);
 
@@ -279,7 +280,7 @@ function JungleGyms() {
         crossOrigin="anonymous"
         ref={videoGym}
         autoPlay
-        muted
+        muted={!audioOn || !hasLoadedRoom}
         loop
         className="gym" >
         <source src={gymUrl} type="video/mp4" ></source>

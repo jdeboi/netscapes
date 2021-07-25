@@ -1,7 +1,7 @@
 
 
 const getClassN = (id) => {
-    const publishNum = 5;
+    const publishNum = 6;
     if (id <= publishNum)
         return "";
     return "disabled"

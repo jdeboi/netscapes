@@ -10,6 +10,8 @@ import useSound from 'use-sound';
 import './Mine.scss';
 import * as THREE from "three";
 
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
 import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls.js';
 import { ImprovedNoise } from 'three/examples/jsm/math/ImprovedNoise.js';
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
@@ -215,10 +217,14 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
         scene.add(directionalLight);
 
 
-        controls = new FirstPersonControls(camera, renderer.domElement);
-        // controls.movementSpeed = 1000;
-        controls.lookSpeed = 0.025;
-        controls.lookVertical = false;
+        // controls = new FirstPersonControls(camera, renderer.domElement);
+        // // controls.movementSpeed = 1000;
+        // controls.lookSpeed = 0.025;
+        // controls.lookVertical = false;
+
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 1;
+        controls.maxDistance = 80;
 
         const color = 0x000000;  // white
         const near = 100;
@@ -304,7 +310,7 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
     const coinSpace = 15;
 
     const totalW = vidW + vidW * .7 + (coinW + coinSpace) * 2;
-    const totalH = vidH + 26  + (coinW + 26 + coinSpace);
+    const totalH = vidH + 26 + (coinW + 26 + coinSpace);
 
     const vid = { x: (window.innerWidth - totalW) / 2 + coinW + coinSpace, y: (window.innerHeight - totalH) / 2, w: vidW, h: vidH };
     const pit = { x: vid.x + vid.w * .7, y: vid.y + coinW + 26 + coinSpace, w: vidW, h: vidH };
@@ -312,9 +318,9 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
 
     if (ui.width < 700) {
         waterfall.y = mapVal(ui.width, 700, 300, vid.y, vid.y - 60);
-        waterfall.x = Math.min(waterfall.x, pit.x+pit.w-waterfall.w)
+        waterfall.x = Math.min(waterfall.x, pit.x + pit.w - waterfall.w)
     }
-        
+
     //
     return (
         <div className="Mine Sketch pickCursor" onClick={playSound}>
@@ -355,7 +361,7 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
                         height={vid.h}
                         loop
                         playsInline
-                        muted={!audioOn}
+                        muted={!audioOn || !hasLoadedRoom}
                     >
                         <source src={window.AWS + "/mine/quarry2.mp4"} type="video/mp4"></source>
                     </video>
@@ -366,7 +372,7 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
                 x={vid.x}
                 y={vid.y}
             />
-           
+
         </div>
     )
 }
