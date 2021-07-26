@@ -10,7 +10,7 @@ import useSound from 'use-sound';
 import './Mine.scss';
 import * as THREE from "three";
 
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls.js';
 import { ImprovedNoise } from 'three/examples/jsm/math/ImprovedNoise.js';
@@ -217,14 +217,11 @@ export default function Mine({ ui, hasLoadedRoom, audioOn }) {
         scene.add(directionalLight);
 
 
-        // controls = new FirstPersonControls(camera, renderer.domElement);
-        // // controls.movementSpeed = 1000;
-        // controls.lookSpeed = 0.025;
-        // controls.lookVertical = false;
+        controls = new FirstPersonControls(camera, renderer.domElement);
+        // controls.movementSpeed = 1000;
+        controls.lookSpeed = 0.025;
+        controls.lookVertical = false;
 
-        controls = new OrbitControls(camera, renderer.domElement);
-        controls.minDistance = 1;
-        controls.maxDistance = 80;
 
         const color = 0x000000;  // white
         const near = 100;
