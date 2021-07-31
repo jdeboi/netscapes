@@ -11,11 +11,12 @@ import Yosemite from '../components/sketches/Yosemite/Yosemite';
 import HardDrives from '../components/sketches/HardDrives/HardDrives';
 import JungleGyms from '../components/sketches/JungleGyms/JungleGyms';
 import Hurricane from '../components/sketches/Hurricane/Hurricane';
-import Beached from '../components/sketches/Beached/Beached';
 import Mojave from '../components/sketches/Mojave/Mojave';
 import Infrastructure from '../components/sketches/Infrastructure/Infrastructure';
 import Mine from '../components/sketches/Mine/Mine';
-import Melt from '../components/sketches/Melt/Melt';
+import Wallpaper from '../components/sketches/Wallpaper/Wallpaper';
+// import Beached from '../components/sketches/Beached/Beached';
+// import Melt from '../components/sketches/Melt/Melt';
 
 import Home from '../components/sketches/Home/Home';
 
@@ -111,7 +112,7 @@ function App(props) {
       <Route exact path={getUrl("mine")} render={() => (<Mine {...sketchProps} />)} />
       <Route exact path={getUrl("out")} render={() => (<Infrastructure {...sketchProps} />)} />
       {/* <Route exact path={getUrl("beached")} component={Beached} /> */}
-      <Route exact path={getUrl("melt")} component={Melt} />
+      <Route exact path={getUrl("roomba")} render={() => (<Wallpaper {...sketchProps} />)} />
 
       <Route exact path="/home" component={Home} />
       <Route exact path="/about" component={About} />

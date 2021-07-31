@@ -52,12 +52,12 @@ export default class Draggable {
     }
   }
 
-  display() {
+  display(rot=0) {
     this.p5.push();
     this.p5.translate(this.x, this.y);
     if (!this.closed) {
       if (!this.minimized)
-        this.displayContent();
+        this.displayContent(rot);
     }
     this.p5.pop();
   }

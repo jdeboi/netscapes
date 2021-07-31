@@ -11,9 +11,9 @@ export default class ShadowDraggable extends Draggable {
 
 
 
-    displayContent() {
+    displayContent(rot=0) {
         this.displayShadow();
-        super.displayContent();
+        super.displayContent(rot);
     }
 
     displayShadow() {
