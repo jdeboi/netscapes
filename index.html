@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>netscapes — Jenna deBoisblanc</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/netscapes/assets/shared/style.css" />
+    <style>
+      body {
+        background: #000;
+        color: #fff;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: consoleFont, monospace;
+      }
+      h1 {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        margin-bottom: 2rem;
+      }
+      .collection-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+      .collection-list a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .collection-list a:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>netscapes</h1>
+    <ul class="collection-list">
+      <li><a href="/netscapes/mine/">mine</a></li>
+      <li><a href="/netscapes/central-coast/">central coast</a></li>
+      <li><a href="/netscapes/chandeleur/">chandeleur</a></li>
+    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: consoleFont;
+    src: url(https://lmd-bucket.s3.us-east-2.amazonaws.com/shared/fonts/dogica.ttf);
+  }
+
+  @font-face {
+    font-family: consoleFontBold;
+    src: url(https://lmd-bucket.s3.us-east-2.amazonaws.com/shared/fonts/dogicabold.ttf);
+  }

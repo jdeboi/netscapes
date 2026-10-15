@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chandeleur — About</title>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+/>
+<link rel="stylesheet" href="/netscapes/assets/shared/style.css" />
+
+    <style>
+      body {
+        background: black;
+        color: white;
+        font-family: consoleFont, monospace;
+        font-size: 11px;
+        line-height: 1.8;
+      }
+      .about-container {
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      .about-container h1 {
+        font-size: 12px;
+        opacity: 0.5;
+        margin-bottom: 2rem;
+        letter-spacing: 0.1em;
+      }
+      .about-container p {
+        opacity: 0.75;
+        margin-bottom: 1.5rem;
+      }
+      a { color: white; }
+    </style>
+  </head>
+  <body>
+    <nav id="coastal-navbar" class="navbar" data-collection="chandeleur">
+  <div class="container-fluid d-flex justify-content-between">
+    <div class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="/netscapes/chandeleur/"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        chandeleur
+      </a>
+      <ul class="dropdown-menu" id="nav-links"></ul>
+    </div>
+
+    <div class="nav-item dropdown ms-auto">
+      <a
+        class="nav-link"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="bi bi-list" style="font-size: 1.5rem"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="/netscapes/">netscapes</a></li>
+        <li><a class="dropdown-item" href="/netscapes/mine/">mine</a></li>
+        <li><a class="dropdown-item" href="/netscapes/central-coast/">central coast</a></li>
+        <li><a class="dropdown-item" href="/netscapes/chandeleur/">chandeleur</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="https://instagram.com/jdeboi"
+            target="_blank"
+          >
+            <i class="bi bi-instagram" style="font-size: 1.2rem"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.getElementById("coastal-navbar");
+    const collectionKey = nav ? nav.dataset.collection : null;
+    if (!collectionKey) return;
+
+    fetch("/netscapes/shared/collections.json")
+      .then((r) => r.json())
+      .then((collections) => {
+        const pages = collections[collectionKey] || [];
+        const navLinks = document.getElementById("nav-links");
+        pages.forEach(({ id, name }) => {
+          const li = document.createElement("li");
+          li.classList.add("dropdown-item");
+          const a = document.createElement("a");
+          a.classList.add("nav-link");
+          a.href = `/netscapes/${collectionKey}/${id}/`;
+          a.textContent = name;
+          li.appendChild(a);
+          navLinks.appendChild(li);
+        });
+      })
+      .catch(() => {});
+  });
+</script>
+
+<style>
+  #coastal-navbar {
+    background-color: #000000;
+    color: white;
+    font-size: 12px;
+    font-family: consoleFont, "Roboto", sans-serif;
+    z-index: 100;
+  }
+
+  #coastal-navbar .dropdown-item {
+    font-size: 11px;
+  }
+</style>
+
+    <div class="about-container">
+      <h1>chandeleur</h1>
+      <p>
+        Coming soon.
+      </p>
+      <p>
+        By <a href="https://instagram.com/jdeboi" target="_blank">jdeboi</a>.
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

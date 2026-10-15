@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pelican - Animated Low Poly
+* source:	https://sketchfab.com/3d-models/pelican-animated-low-poly-98356dea7be646fba4625595340a4280
+* author:	WildPoly3D (https://sketchfab.com/WildPoly3D)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pelican - Animated Low Poly" (https://sketchfab.com/3d-models/pelican-animated-low-poly-98356dea7be646fba4625595340a4280) by WildPoly3D (https://sketchfab.com/WildPoly3D) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

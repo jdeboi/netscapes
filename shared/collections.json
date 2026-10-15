@@ -1,0 +1,14 @@
+{
+  "central-coast": [
+    { "id": "weeds",        "name": "Weeds" },
+    { "id": "agave",        "name": "Agave" },
+    { "id": "splishsplash", "name": "Splish Splash" },
+    { "id": "sheen",        "name": "Sheen" },
+    { "id": "starrynight",  "name": "Starry Night" }
+  ],
+  "chandeleur": [
+    { "id": "jetsam", "name": "jetsam" },
+    { "id": "chimes", "name": "chimes" },
+    { "id": "sally",  "name": "sally sells seashells" }
+  ]
+}
